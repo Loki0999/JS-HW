@@ -5,15 +5,23 @@ function upDate(previewPic) {
 
     var imageDiv = document.getElementById("image");
     imageDiv.style.backgroundImage = "url('" + previewPic.src + "')";
-    
-    var captionDiv = document.getElementById("caption");
-    captionDiv.innerHTML = previewPic.alt;
+    imageDiv.innerHTML = previewPic.alt;
 }
 
 function unDo() {
     var imageDiv = document.getElementById("image");
     imageDiv.style.backgroundImage = "url('')";
-    
-    var captionDiv = document.getElementById("caption");
-    captionDiv.innerHTML = "Hover over an image below to display here.";
+    imageDiv.innerHTML = "Hover over an image below to display here.";
 }
+
+function upLoad() {
+    console.log("Window loaded successfully");
+    
+    var images = document.querySelectorAll(".preview");
+    for (var i = 0; i < images.length; i++) {
+        console.log("Tabindex added to image " + (i + 1));
+        images[i].setAttribute("tabindex", "0");
+    }
+}
+
+window.onload = upLoad;
